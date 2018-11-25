@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  apache:
+    image: "httpd:latest"
+    container_name: "example" 
+    dns: "8.8.8.8."
+    labels:
+      name: "someone"
+      Env: "dev" 
+      created_by: "omran"
+    ports:
+      - "80:80/tcp"
+    volumes:
+      - share:/share      
+
+
+
+  db:   
+    image: "mysql"
+    container_name: "db"
+    labels:
+      - "db"
+      - "mysql"     
+    volumes:
+      - share:/share      
+
+
+volumes:
+   share:
